@@ -1,0 +1,9 @@
+.Contact_Info{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    height: 100vh;
+    background-color: #091143;  
+    color: #fff;
+    display: flex;
+    flex-flow: column;
+}

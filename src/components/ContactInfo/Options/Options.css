@@ -1,0 +1,22 @@
+.Options{
+    padding: 10px;
+}
+.Options .head{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.Options .List{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+}
+.List:hover .Option{
+    color: rgb(184, 184, 184);
+}
+.List .Icon{
+    padding: 0 5px;
+}
+.Options li{
+    list-style: none;
+}

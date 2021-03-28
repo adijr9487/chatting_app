@@ -1,2 +1,3 @@
 import React from "react";
-export const Auxiliary = (props) => <div>{props.children}</div>;
+const Aux = (props) => <div>{props.children}</div>;
+export default Aux

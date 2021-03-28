@@ -1,11 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+//components
+import Main from "./components/Main/Main"
+import Aux from "./components/Utility/Auxiliary"
 
-function App() {
+//classes
+
+function App(props) {
+
   return (
-    <div>
-      
-    </div>
+    <Aux>
+      <Main />
+    </Aux>
   );  
 }
 
