@@ -12,7 +12,7 @@
     padding: 10px 0;
 }
 .List:hover .Option{
-    color: rgb(184, 184, 184);
+    color: #a7aec4;
 }
 .List .Icon{
     padding: 0 5px;

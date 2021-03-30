@@ -1,0 +1,34 @@
+.TextArea{
+    width: 100%;
+    height: 12%;
+    background-color: #031552;
+    padding: 20px;
+    display: flex;
+}
+.TextArea input{
+    width: 90%;
+    padding: 15px 20px;
+    border-radius: 100px;
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+    background-color: #192760;
+    color: white;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.TextArea input::placeholder{
+    color: #a7aec4;
+}
+.TextArea .Button{
+    padding: 15px 20px;
+    border-radius: 100px;
+    font-size: 1.2rem;
+    background-color: #192760;
+    color: white;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

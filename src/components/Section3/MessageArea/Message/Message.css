@@ -1,0 +1,25 @@
+.Message{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+    display: flex;
+}
+.sar_11{
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    display: inline-block;
+    background-color: hsl(228, 60%, 35%);
+    max-width: 400px;
+}
+.text{
+    color: white;
+    display: inline-block;
+    padding-right: 10px;
+}
+.time{
+    display: flex;
+    justify-content: flex-end;
+    color: #a7aec4;
+    width: auto;
+    align-items: flex-end;
+}

@@ -1,3 +1,5 @@
+import React from "react";
+
 //components
 import Main from "./components/Main/Main"
 import Aux from "./components/Utility/Auxiliary"

@@ -24,13 +24,13 @@ const Media = (props) => {
         )}
     </div>)
 
-    return (
-        <div className={classes.Media}>
-            <h2 className={classes.head}> 
-                Media
-            </h2>
-            {imageArray}
-        </div>
+        return (
+            <div className={classes.Media}>
+                <h2 className={classes.head}> 
+                    Media
+                </h2>
+                {imageArray}
+            </div>
     )
 }
 
