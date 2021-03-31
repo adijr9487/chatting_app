@@ -17,7 +17,7 @@ const Options = (props) => {
             <ul>
                 <li className={classes.List}>
                     <div className={classes.Icon}>
-                        {Mute(15, "white")}
+                        {Mute(10, "white")}
                     </div>
                     <div className={classes.Option}>
                         Mute Chat
@@ -25,7 +25,7 @@ const Options = (props) => {
                 </li>
                 <li className={classes.List}>
                     <div className={classes.Icon}>
-                        {Block(15, "white")}
+                        {Block(10, "white")}
                     </div>
                     <div className={classes.Option}>
                         Block
@@ -33,7 +33,7 @@ const Options = (props) => {
                 </li>
                 <li className={classes.List}>
                     <div className={classes.Icon}>
-                        {Delete(15, "white")}
+                        {Delete(10, "white")}
                     </div>
                     <div className={classes.Option}>
                         Delete Chat

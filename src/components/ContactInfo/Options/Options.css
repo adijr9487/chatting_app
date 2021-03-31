@@ -2,7 +2,6 @@
     padding: 10px;
 }
 .Options .head{
-    font-size: 1.2rem;
     font-weight: 400;
 }
 .Options .List{
@@ -10,6 +9,7 @@
     align-items: center;
     cursor: pointer;
     padding: 10px 0;
+    font-size: 0.8rem;
 }
 .List:hover .Option{
     color: #a7aec4;

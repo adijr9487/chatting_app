@@ -3,16 +3,14 @@
     display: flex;
     overflow: hidden;
 }
-.Box1{
-    width: 15%;
-    background-color: rgb(51, 50, 50);
+.Profile{
+    width: 18%;
 }
-.Box2{
-    width: 35%;
-    background-color: rgb(63, 63, 63);
+.Conversations{
+    width: 32%;
 }
 .TextArea__TopOption{
-    width: 50%;
+    width: 60%;
     background-color: rgb(102, 102, 102);
 }
 .ContactInfo{

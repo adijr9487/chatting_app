@@ -1,0 +1,26 @@
+.Messages{
+    padding: 10px;
+    /* text-align: center; */
+    margin: 30px 0 30px 20px;
+    font-size: 0.8rem;
+}
+.Messages .List{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+}
+.List:hover .Option{
+    color: rgb(184, 184, 184);
+}
+.List{
+    padding: 0 5px;
+}
+.Messages li{
+    list-style: none;
+}
+.Current{
+    background-color: #021959;
+    border-left: 6px solid #324da5;
+    border-radius: 5px;
+}

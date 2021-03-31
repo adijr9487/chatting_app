@@ -7,9 +7,10 @@
 }
 .head{
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .content{
     padding: 5px 0;
+    font-size: 0.8rem;
     color: #aab4be;
 }

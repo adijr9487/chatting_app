@@ -1,8 +1,8 @@
 .TextArea{
     width: 100%;
-    height: 12%;
+    height: 10%;
     background-color: #031552;
-    padding: 20px;
+    padding: 12px;
     display: flex;
 }
 .TextArea input{
