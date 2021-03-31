@@ -1,0 +1,25 @@
+.UserProfile{
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    background-color: #021a85;
+    border-radius: 5%;
+    /* border: 2px solid #133ae9; */
+}
+.Profile .Image{
+    margin: auto;
+    height: 120px;
+    width: 120px;
+    background-size: cover;
+    border-radius: 50%;
+}
+.Name{
+    padding: 5px 0;
+    font-weight: 600;
+}
+.Username{
+    padding: 0 0 5px 0;
+    color: #aab4be;
+}

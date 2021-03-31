@@ -1,0 +1,57 @@
+.Chats {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    /* height: 100vh; */
+    background-color: #091143;  
+    color: #fff;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+
+.Profile .Image{
+    /* margin: auto; */
+    margin-left: 10px;
+    height: 60px;
+    width: 60px;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.name{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    /* margin-right: 100px; */
+    color: #7a7777;
+    width: 100vh;
+    flex-wrap: nowrap;
+}
+.delivered{
+    display: flex;
+    flex-direction: row;
+    width: 10vh;
+    flex-wrap: nowrap;
+
+}
+.delivered span{
+    justify-content: center;
+}
+.delivered p{
+    margin-left: 5px;
+}
+
+.time{
+    font-size: 0.8rem;
+    color: #7a7777;
+    width: 22vh;
+}
+
+.read {
+    justify-content: center;
+    align-items: center;
+}
+
+.icon{
+    padding: 0 5px;
+}

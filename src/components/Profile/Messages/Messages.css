@@ -1,0 +1,21 @@
+.Messages{
+    padding: 10px;
+    /* text-align: center; */
+    margin: 30px 0 30px 20px;
+    font-size: 1.1rem;
+}
+.Messages .List{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+}
+.List:hover .Option{
+    color: rgb(184, 184, 184);
+}
+.List{
+    padding: 0 5px;
+}
+.Messages li{
+    list-style: none;
+}
