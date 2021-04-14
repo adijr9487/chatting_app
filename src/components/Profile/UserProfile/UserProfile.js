@@ -6,7 +6,7 @@ import classes from './UserProfile.css';
 const UserProfile = (props) =>{
 
     let ProfileStyle ={
-        backgroundImage: "url(https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60)"
+        backgroundImage: `url(${props.userData.imageUrl || "https://i.stack.imgur.com/34AD2.jpg"})`
     }
     return (
         <div className={classes.UserProfile}>
@@ -15,11 +15,11 @@ const UserProfile = (props) =>{
                 </div>
             </div>
             <div className={classes.Name}>
-                Regina Pollastro
+                {props.userData.name}
             </div>
-            <div className={classes.Username}>
-                Regina_12
-            </div>
+            {/* <div className={classes.Username}>
+                {props.userData.username}
+            </div> */}
         </div>
     )
 }

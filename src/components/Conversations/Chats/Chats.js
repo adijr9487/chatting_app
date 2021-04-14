@@ -7,7 +7,7 @@ import Delivered from './Util/delivered';
 
 const Chats = (props) =>{
     let ProfileStyle ={
-        backgroundImage: "url(https://ep01.epimg.net/estaticos/arc/2021/02/entrevista/img/bill.jpg)"
+        backgroundImage: `url(${props.friendData.imageUrl || "https://i.stack.imgur.com/34AD2.jpg"})`
     }
 
     return(
@@ -17,16 +17,16 @@ const Chats = (props) =>{
                 </div>
             </div>
             <div className={classes.name}>
-                <p style={{ color:"#fff",marginBottom:"15px"}}>Juan Esteban Sarmiento</p>
+                <p style={{ color:"#fff",marginBottom:"15px"}}>{props.friendData.name}</p>
                 <div className={classes.delivered}>
                     <span>{Delivered(18,"grey")}</span>
-                    <p style={{ color:"#c5c5c5"}}> Cool.</p>
+                    <p style={{ color:"#c5c5c5"}}> {props.friendData.last}</p>
                 </div>
             </div>
 
             <div className={classes.time}>
                 <p className={classes.read}>.</p>
-                <p style={{marginTop:"25px"}}>3:57 PM</p>
+                <p style={{marginTop:"25px"}}>{props.friendData.time}</p>
             </div>
         </div>
     )

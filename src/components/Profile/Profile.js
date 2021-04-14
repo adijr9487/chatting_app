@@ -9,12 +9,15 @@ import UserProfile from './UserProfile/UserProfile';
 import classes from "./Profile.css";
 
 const Profile = (props) =>{
+
+    console.log(props.userData)
+
     return (
         <div className={classes.Profile}>
             {/* <Logout/>
             <Settingss/> */}
-            <UserProfile/>
-            <Messages/>
+            <UserProfile userData={props.userData}/>
+            <Messages logoutHandler={props.logoutHandler}/>
         </div>
     )
 }

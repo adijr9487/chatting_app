@@ -3,7 +3,7 @@ import React from 'react';
 //classes
 import classes from './Messages.css';
 
-const Messages = () =>{
+const Messages = (props) =>{
     return (
         <div className={classes.Messages}>
             <ul>
@@ -17,7 +17,7 @@ const Messages = () =>{
                         Settings
                     </div>
                 </li>
-                <li className={classes.List}>
+                <li onClick={props.logoutHandler} className={classes.List}>
                     <div className={classes.Option}>
                         Logout
                     </div>

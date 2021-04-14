@@ -35,7 +35,19 @@
 .search input[type=text]:focus {
     border: 1px solid #fff;
 } */
-
+.recent{
+    margin-left: 5px;
+    cursor: pointer;
+}
+.recent:hover{
+    color: #ccc;
+}
+.new{
+    cursor: pointer;
+}
+.new:hover{
+    color: #ccc;
+}
 .opt{
     display: flex;
     justify-content: space-between;
