@@ -1,0 +1,74 @@
+.Setting{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    height: 100vh;
+    background-color: #091143;  
+    color: #fff;
+    display: flex;
+    flex-flow: column;
+}
+
+.Heading {
+    margin: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Heading1 {
+    margin: 20px;
+    font-size: 1.2rem;
+    color:rgb(243, 21, 195);
+    /* font-weight: bolder; */
+}
+
+.Heading2 {
+    margin: 20px;
+    font-size: 1rem;
+    color: black;
+}
+
+.Profile .Image{
+    margin: auto;
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.Name{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: rgb(247, 243, 243);
+}
+
+.Name_Section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.edit{
+    text-align: center;
+    margin: 20px;
+    color: black;
+}
+
+.text{
+    text-align: center;
+    color: grey;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

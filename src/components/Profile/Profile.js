@@ -9,12 +9,16 @@ import UserProfile from './UserProfile/UserProfile';
 import classes from "./Profile.css";
 
 const Profile = (props) =>{
+    const changeShowOptionHandler = (type) => {
+        props.ChangeShowOption(type)
+    }
+
     return (
         <div className={classes.Profile}>
             {/* <Logout/>
             <Settingss/> */}
             <UserProfile/>
-            <Messages/>
+            <Messages changeShowOption={changeShowOptionHandler} />
         </div>
     )
 }
