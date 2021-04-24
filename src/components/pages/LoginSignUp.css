@@ -1,0 +1,100 @@
+.LoginSignUp{
+    height: 100vh;
+    background: linear-gradient(to bottom, #007480, #00BEBA);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.Header{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4ef5f2;
+    text-align: center;
+    padding: 10px;
+}
+.FormSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0 0 0;
+}
+.LoginContainer{
+    padding: 0 50px 50px 50px;
+    display: inline-block;
+    border-radius: 10px;
+    background-color: #283758;
+    box-shadow: 0 0 5px #060c36;
+
+    /* border: 2px solid #0f1a61; */
+}
+.Head{
+    text-align: center;
+}
+.checkLink{
+    width: 100%;
+    display: flex;
+    color: #2FFAE7;
+    margin: 10px 0 0 0;
+    cursor: pointer;
+}
+.Text{
+    display: inline-block;
+    text-align: center;
+    color: #6974bb;
+    font-size: 1.3rem;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    background-color: #2FFAE7;
+    position: relative;
+    top: -10px;
+}
+.field{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 0 0;
+}
+.field label{
+    color: white;
+}
+.field input{
+    width: 300px;
+    background-color: #4F5875;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 5px #060c36;
+    border-radius: 5px;
+    color: white;
+}
+.field input::placeholder{
+    color: #7e86a0;
+}
+.errorMessage{
+    color: #cf6c6c;
+    width: 300px;
+}
+.Button{
+    padding: 10px 20px;
+    background-color: #2FFAE7;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    margin-top: 60px;
+    box-shadow: 0 0 5px #060c36;
+    outline: none;
+    color: rgb(29, 28, 28);
+    font-size: 1rem;
+}
+.Button:hover{
+    background-color: #d2d8ff;
+    color: #060c36;
+}
+.toggle{
+    color: #11acbd;
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+.toggle:hover{
+    color: #007480;
+}

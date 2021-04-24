@@ -6,6 +6,7 @@ import firebase from "./Firebase"
 import Main from "./components/Main/Main"
 import Conversation from './components/Conversations/Conversation';
 import Chats from './components/Conversations/Chats/Chats'
+import Setting from './components/Setttings/Setting'
 import Aux from "./components/Utility/Auxiliary"
 
 import LoginSignUp from "./components/pages/LoginSignUp";
@@ -32,7 +33,7 @@ function App(props) {
       firebase.auth().signInWithEmailAndPassword(loginData.email, loginData.password)
       .then((user)=>{
         setUser(user.user.uid)
-        console.log(user.user.uid)
+        // console.log(user.user.uid)
         setIsLoading(false)
       })
       .catch(error=>{
@@ -43,13 +44,13 @@ function App(props) {
             //show error message to email
             setIsLoading(false)
             setEmailError(error.message )
-            console.log(error.message)
+            // console.log(error.message)
             break;
           case "auth/wrong-password":
             //show error message to password
             setIsLoading(false)
             setPasswordError(error.message)
-            console.log(error.message)
+            // console.log(error.message)
             break;
         }
       })
@@ -67,7 +68,7 @@ function App(props) {
         })
 
         setUser(user.user.uid)
-        console.log(user.user.uid)
+        // console.log(user.user.uid)
         setIsLoading(false)
       })
       .catch(error=>{
@@ -77,13 +78,13 @@ function App(props) {
             //show error message to email
             setIsLoading(false)
             setEmailError(error.message)
-            console.log(error.message)
+            // console.log(error.message)
             break;
           case "auth/weak-password":
             //show error message to password
             setIsLoading(false)
             setPasswordError(error.message)
-            console.log(error.message)
+            // console.log(error.message)
             break;
         }
       })
@@ -97,7 +98,7 @@ function App(props) {
     firebase.auth().onAuthStateChanged(user=>{
       if(user){
         setUser(user.uid)
-        console.log(user.uid)
+        // console.log(user.uid)
       }else{
         setUser(null)
       }

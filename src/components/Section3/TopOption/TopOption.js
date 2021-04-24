@@ -10,7 +10,7 @@ const TopOption = (props) => {
 
     const [MenuColor, setMenuColor] = useState("white")
     let ImageStyle = {
-        backgroundImage: "url(https://ep01.epimg.net/estaticos/arc/2021/02/entrevista/img/bill.jpg)"
+        backgroundImage: `url(${props.friendData.imageurl || "https://i.stack.imgur.com/34AD2.jpg"})`
     }
 
     const mouseOverHandler = (e) => {
@@ -23,6 +23,7 @@ const TopOption = (props) => {
     const clickHandler = (e) => {
         props.changeShowContactInfo()
     }
+    console.log(props.friendData)
 
     return (
         <div className={classes.TopOption}>
@@ -31,10 +32,10 @@ const TopOption = (props) => {
             </div>
             <div className={classes.Name_LastSeen}>
                 <div className={classes.Name}>
-                    Bill Gates
+                    {props.friendData.name}
                 </div>
                 <div className={classes.LastSeen}>
-                    Last seen today at 1:30PM
+                    {props.friendData.lastscene}
                 </div>
             </div>
             <div onClick={clickHandler} className={classes.HamburgerMenu} onMouseOver={mouseOverHandler} onMouseLeave={mouseLeaveHandler}>

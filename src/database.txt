@@ -1,0 +1,25 @@
+Profiles: {
+    uid: {
+        name,
+        username,
+        email,
+        password,
+    }
+}
+
+Contacts: {
+    uid1: {
+        uid2
+    }
+    uid2: {
+        uid1
+    }
+}
+Chats: {
+    uid1: {
+        last,
+        message,
+        senderId,
+        time
+    }
+}

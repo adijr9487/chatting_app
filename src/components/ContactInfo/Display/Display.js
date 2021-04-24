@@ -8,7 +8,7 @@ import classes from "./Display.css"
 const Display = (props) => {
 
     let ImageStyle = {
-        backgroundImage: "url(https://ep01.epimg.net/estaticos/arc/2021/02/entrevista/img/bill.jpg)"
+        backgroundImage: `url(${props.friendData.imageurl || "https://i.stack.imgur.com/34AD2.jpg"})`
     }
 
     return (
@@ -25,10 +25,7 @@ const Display = (props) => {
                 </div>
             </div>
             <div className={classes.Name}>
-                Bill Gates
-            </div>
-            <div className={classes.Place}>
-                Seattle
+                {props.friendData.name}
             </div>
         </div>
     )

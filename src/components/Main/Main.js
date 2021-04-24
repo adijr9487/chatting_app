@@ -6,6 +6,7 @@ import Profile from '../Profile/Profile'
 import Conversations from '../Conversations/Conversation'
 import ContactInfo from "../ContactInfo/CantactInfo"
 import Section3 from "../Section3/Section3"
+import Setting from '../Setttings/Setting'
 
 //classes
 import classes from "./Main.css"
@@ -16,21 +17,27 @@ const Main = (props) => {
     const [userData, setUserData] = useState(null)
     const [activeConversation, setActiveConversation] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
+    const [showOption, setShowOption] = useState("conversation")
+    const [isChanged, setIsChanged] = useState(false)
 
     const changeShowContactInfoHandler = () => {
         setShowContact(!showContact)
     }
 
+    const conversationHandler = (friendUID, conversationUID) => {
+        setActiveConversation({friendUID: friendUID, conversationUID: conversationUID})
+    }
+
+
 
     useEffect(() => {
         
         //retriving data from database of user
-        console.log(props.uid)
         setIsLoading(true)
         const dbRef = firebase.database().ref();
         dbRef.child("Profiles").child(props.uid).get().then((user) => {
         if (user.exists()) {
-            console.log(user.val());
+            console.log(user.val())
             setUserData({
                 ...user.val(),
             });
@@ -43,8 +50,11 @@ const Main = (props) => {
         });
         setUserData({})
 
-    }, [props.uid])
+    }, [props.uid, isChanged])
 
+    const changeShowOptionHandler = (type) => {
+        setShowOption(type) 
+    }
 
     return (
         isLoading ? <div className={classes.loading}><div className={classes.loader}></div></div> 
@@ -52,19 +62,20 @@ const Main = (props) => {
         <div className={classes.Main}>
             {/* row 1/ */}
             <div className={classes.Profile}>
-                <Profile userData={userData} logoutHandler={props.logoutHandler}/>
+                <Profile userData={userData} logoutHandler={props.logoutHandler} ChangeShowOption={changeShowOptionHandler}  />
             </div>
             {/* row 2/ */}
             <div className={classes.Conversations}>
-                <Conversations userData={userData}/>
+                {showOption === "conversation" ? <Conversations conversationUId={conversationHandler} userData={userData}/> : showOption === "setting" ? <Setting dbChanged={()=>setIsChanged(!isChanged)} userData={userData} /> : null}
+            
             </div>
             {/* row 3/ */}
             <div className={classes.TextArea__TopOption}>
-                <Section3 userData={userData} changeShowContact={changeShowContactInfoHandler} />
+                <Section3  activeConversationData={activeConversation} userData={userData} changeShowContact={changeShowContactInfoHandler} />
             </div>
             {/* row 4/ */}
             <div style={{width: showContact ? "250px" : "0px"}}className={classes.ContactInfo}>
-                <ContactInfo userData={userData} />
+                <ContactInfo activeConversationData={activeConversation} userData={userData} />
             </div>
         </div>
     )

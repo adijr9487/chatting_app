@@ -10,14 +10,17 @@ import classes from "./Profile.css";
 
 const Profile = (props) =>{
 
-    console.log(props.userData)
+    // console.log(props.userData)
+    const changeShowOptionHandler = (type) => {
+        props.ChangeShowOption(type)
+    }
 
     return (
         <div className={classes.Profile}>
             {/* <Logout/>
             <Settingss/> */}
             <UserProfile userData={props.userData}/>
-            <Messages logoutHandler={props.logoutHandler}/>
+            <Messages logoutHandler={props.logoutHandler} changeShowOption={changeShowOptionHandler}/>
         </div>
     )
 }
