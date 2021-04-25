@@ -24,11 +24,12 @@ const Section3 = (props) => {
             // if it is not null
             //retrieve messages from database
             firebase.database().ref(`Chats/${props.activeConversationData.conversationUID}`).on("value", (user)=>{
+                console.log(user.val())
                 if(user.val().messages){
                     // console.log(user.val().messages)
                     let allMessageArray = []
                     for(var i in user.val().messages){
-                        // console.log(user.val().messages[i])
+                        console.log(user.val().messages[i])
 
                         let tempMessageArray = {
                             ...user.val().messages[i],

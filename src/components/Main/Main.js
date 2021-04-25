@@ -26,6 +26,7 @@ const Main = (props) => {
 
     const conversationHandler = (friendUID, conversationUID) => {
         setActiveConversation({friendUID: friendUID, conversationUID: conversationUID})
+        console.log({friendUID: friendUID, conversationUID: conversationUID})
     }
 
 

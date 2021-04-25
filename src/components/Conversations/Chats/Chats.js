@@ -14,6 +14,7 @@ const Chats = (props) =>{
     const requestHandler = () => {
         //this is clicked by home user with ---uid of request sending user
         // return uid of both user 
+        console.log(props.friendData)
         props.request(props.friendData.uid)
     }
 

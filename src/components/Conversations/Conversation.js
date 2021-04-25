@@ -7,6 +7,7 @@ import NewChat from "./NewChat/NewChat";
 
 //classes
 import classes from "./Conversation.css";
+import { isCompositeComponent } from "react-dom/test-utils";
 
 const Conversation = (props) => {
   const [newFriend, setNewFriend] = useState(null)
@@ -31,42 +32,95 @@ const Conversation = (props) => {
     firebase
       .database()
       .ref(`Chats`)
-      .on("value", async (users) => {
+      .on("value", (users) => {
         let data = users.val();
         let tempRecentChat = [];
         let tempPendingChat = [];
         let tempRequestedChat = [];
+        let tempRecentObj = "";
         let userData = ""
         // console.log(props.userData);
         for (const key in data) {
-        //   console.log(key, data[key]);
-        //   console.log(key.indexOf(props.userData.uid));
           if (key.indexOf(props.userData.uid) === 0) {
             let friendUID = key.slice(props.userData.uid.length, key.length);
-            //if user is the first element in key
-            // console.log(data[key]);
-            //if peding then he must have sended the request
-            if (data[key].status === "pending") {
-              //if you have send request
-              tempPendingChat.push(friendUID);
-              //if requested the friend must have sended the request
-            } else if (data[key].status === "requested") {
-              // if someone has send request to you
-              tempRequestedChat.push(friendUID);
-            } else {
-              // if no status is found
-              // mean you are already friend
-                userData = {
-                  uid: friendUID, //this is friend UID
-                  conversationUID: key,
-                  lastmsg: data[key].lastmgs,
-                  time: data[key].time
-              }
-            //   console.log(userData)
-              tempRecentChat.push(friendUID);
+              userData = {
+                conversationUID: key,
+                lastmsg: data[key].lastmgs,
+                time: data[key].time
             }
+            tempRecentObj = {
+              ...tempRecentObj,
+              [friendUID]: {
+                conversationUID: key,
+                lastmsg: data[key].lastmgs,
+                time: data[key].time
+              }
+            }
+          tempRecentChat.push(friendUID);
+          
           }
         }
+        console.log(tempRecentObj)
+        firebase
+        .database()
+        .ref(`Chat Requests/`)
+        .on("value", (users) => {
+          console.log(users.val())
+          for(let key in users.val()){
+            if(key === props.userData.uid){
+              
+              for(let friendUID in users.val()[props.userData.uid]){
+                
+                if(users.val()[props.userData.uid][friendUID].request_type === "send"){
+                  tempPendingChat.push(friendUID)
+                }else if(users.val()[props.userData.uid][friendUID].request_type === "received"){
+                  tempRequestedChat.push(friendUID)
+                }
+                
+                console.log(key, users.val()[props.userData.uid])
+
+              }
+
+            }
+          }
+          
+          if (tempPendingChat.length) {
+            firebase
+              .database()
+              .ref(`Profiles/`)
+              .on("value", (users) => {
+                let allUser = [];
+                for (const key in users.val()) {
+                  if (tempPendingChat.indexOf(key) !== -1) {
+                    allUser.push(users.val()[key]);
+                    console.log()
+                  }
+                }
+                setPending(allUser);
+              });
+          }
+          else{
+              setPending(null);
+          }
+          if (tempRequestedChat.length) {
+            firebase
+              .database()
+              .ref(`Profiles/`)
+              .on("value", (users) => {
+                let allUser = [];
+                for (const key in users.val()) {
+                  if (tempRequestedChat.indexOf(key) !== -1) {
+                    allUser.push(users.val()[key]);
+                  }
+                }
+                setRequested(allUser);
+              });
+          }else{
+              setRequested(null);
+          }
+          console.log(tempPendingChat)
+          console.log(tempRequestedChat )
+        })
 
         // console.log(tempRecentChat, tempPendingChat, tempRequestedChat);
         if (tempRecentChat.length) {
@@ -78,9 +132,11 @@ const Conversation = (props) => {
               for (const key in users.val()) {
                   if (tempRecentChat.indexOf(key) !== -1) {
                     // console.log(users.val()[key]);
+                    console.log(users.val()[key])
                   allUser.push({
                     ...users.val()[key],
-                    ...userData
+                    // ...userData
+                    ...tempRecentObj.key
                   });
                 }
               }
@@ -90,39 +146,7 @@ const Conversation = (props) => {
         }else{
             setRecentChat(null);
         }
-        if (tempPendingChat.length) {
-          firebase
-            .database()
-            .ref(`Profiles/`)
-            .on("value", (users) => {
-              let allUser = [];
-              for (const key in users.val()) {
-                if (tempPendingChat.indexOf(key) !== -1) {
-                  allUser.push(users.val()[key]);
-                }
-              }
-              setPending(allUser);
-            });
-        }
-        else{
-            setPending(null);
-        }
-        if (tempRequestedChat.length) {
-          firebase
-            .database()
-            .ref(`Profiles/`)
-            .on("value", (users) => {
-              let allUser = [];
-              for (const key in users.val()) {
-                if (tempRequestedChat.indexOf(key) !== -1) {
-                  allUser.push(users.val()[key]);
-                }
-              }
-              setRequested(allUser);
-            });
-        }else{
-            setRequested(null);
-        }
+        
         setShowData("recentChat");
       });
     setIsLoading(false);
@@ -131,19 +155,20 @@ const Conversation = (props) => {
   const sendRequestHandler = (friendUID) => {
     firebase
       .database()
-      .ref(`Chats/${props.userData.uid + friendUID}`)
+      .ref(`Chat Requests/${props.userData.uid}/${friendUID}`)
       .set({
-        status: "pending",
+        request_type: "send",
       });
     firebase
       .database()
-      .ref(`Chats/${friendUID + props.userData.uid}`)
+      .ref(`Chat Requests/${friendUID}/${props.userData.uid}`)
       .set({
-        status: "requested",
+        request_type: "received",
       });
   };
 
   const requestHandler = (friendUID) => {
+    
     firebase
       .database()
       .ref(`Chats/${props.userData.uid + friendUID}`)
@@ -160,7 +185,13 @@ const Conversation = (props) => {
         messages: "",
         time: "",
       })
-    recentChatHandler();
+
+    firebase.database().ref().child(`Chat Requests/${props.userData.uid}/${friendUID}`).remove().then(()=>{
+      firebase.database().ref().child(`Chat Requests/${friendUID}/${props.userData.uid}`).remove().then(()=>{
+        recentChatHandler();
+      })
+    })
+
   };
 
   const newChatHandler = () => {
@@ -269,3 +300,5 @@ const Conversation = (props) => {
 };
 
 export default Conversation;
+
+
