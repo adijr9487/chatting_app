@@ -1,6 +1,7 @@
 {
   "name": "chatting_app",
   "version": "0.1.0",
+  "homepage": "https://adijr9487.github.io/chatting_app/",
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
@@ -73,7 +74,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
